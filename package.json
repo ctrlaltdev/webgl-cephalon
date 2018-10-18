@@ -1,0 +1,30 @@
+{
+  "name": "cephalon",
+  "version": "1.0.0",
+  "author": "Yorick <yorick@ctrlaltdev.xyz>",
+  "license": "MPL-2.0",
+  "private": true,
+  "scripts": {
+    "dev": "npm-run-all -p dev:*",
+    "dev:pug": "pug -w -P src/index.pug -o app/",
+    "dev:sass": "node-sass-chokidar -w src/sass/ -o app/ --source-map true --source-map-contents sass",
+    "dev:js": "webpack-dev-server --mode development --open",
+    "build": "npm-run-all build:*",
+    "build:pug": "pug src/index.pug -o app/",
+    "build:sass": "rm app/main.css.map && node-sass-chokidar src/sass/ -o app/ --output-style compressed",
+    "build:js": "webpack --mode production"
+  },
+  "dependencies": {
+    "npm-run-all": "^4.1.3",
+    "three": "^0.97.0"
+  },
+  "devDependencies": {
+    "node-sass-chokidar": "^1.3.4",
+    "pug": "^2.0.3",
+    "pug-cli": "^1.0.0-alpha6",
+    "stats.js": "^0.17.0",
+    "webpack": "^4.21.0",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.9"
+  }
+}
